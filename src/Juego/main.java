@@ -1,5 +1,6 @@
 package Juego;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class main {
@@ -19,7 +20,7 @@ public class main {
 			//ingresar núm por teclado
 			Scanner scanner = new Scanner(System.in);
 			System.out.println("Elija un número del 1 al 10");
-			numElegido = scanner.nextInt();
+			numElegido = obtenerInt();
 			generarLineaLarga();
 			intentos++;//contador
 			
@@ -57,4 +58,22 @@ public class main {
 	public static void generarLineaLarga() {
 		System.out.println("________________________________\n");
 		}
+	
+	//codigo de validacion
+			private static int obtenerInt() {
+				int i = 0; //investigar como cambiar el 0 para q no quede en un bucle infinito 
+				while (i == 0) {
+				try {
+				int nro = scanner.nextInt();
+				i = nro;
+				} catch (InputMismatchException e) {
+				System.out.println("Por favor ingrese un valor numerico");
+				generarLineaLarga();
+				scanner.next();
+				System.out.print("Elija un número del 1 al 10");
+				}
+				}
+				return i;
+				}
+			
 }//cierra class main
