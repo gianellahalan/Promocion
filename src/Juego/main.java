@@ -11,7 +11,6 @@ public class main {
 		// generar el núm aleatorio
 		int aleatorio = 0;
 		aleatorio = (int) (Math.random() * 10 + 1);
-		System.out.println(aleatorio);
 		int intentos=0;
 		int numElegido;
 		
